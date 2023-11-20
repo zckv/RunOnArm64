@@ -13,8 +13,8 @@ jobs:
           echo start
           ls
           whoami
-          sudo apt-get -y install docker-buildx-plugin
-          docker buildx install
+          sudo apt-get install  -y qemu qemu-user-static 
+          docker run --rm --privileged multiarch/qemu-user-static --reset -p yes --credential yes
           docker build --no-cache --tag rk8arm64:latest -f rk8arm64.Dockerfile .
           docker run rk8arm64:latest uname -a
           echo $(docker run rk8arm64:latest uname -a)
