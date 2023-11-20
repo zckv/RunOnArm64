@@ -12,7 +12,7 @@ jobs:
         run: |
           echo start
           ls
-          docker build --rm --tag rk8arm64:latest -f rk8arm64 .
+          docker build --no-cache --tag rk8arm64:latest -f rk8arm64.Dockerfile .
           docker run rk8arm64:latest uname -a
           echo $(docker run rk8arm64:latest uname -a)
           # echo "The uname output was ${{ steps.runcmd.outputs.uname }}"
