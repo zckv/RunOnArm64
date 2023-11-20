@@ -12,7 +12,8 @@ jobs:
         run: |
           echo start
           ls
-          apt install docker-buildx-plugin
+          whoami
+          sudo apt-get -y install docker-buildx-plugin
           docker buildx install
           docker build --no-cache --tag rk8arm64:latest -f rk8arm64.Dockerfile .
           docker run rk8arm64:latest uname -a
